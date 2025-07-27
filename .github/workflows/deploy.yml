@@ -1,0 +1,30 @@
+name: Despliegue API .NET Core 8
+
+on:
+  push:
+    branches: [ "main" ]  # Se activa cuando haces push a main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: 📦 Clonar el repositorio
+      uses: actions/checkout@v3
+
+    - name: ⚙️ Instalar .NET Core SDK
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: 🔄 Restaurar dependencias
+      run: dotnet restore
+
+    - name: 🏗️ Compilar el proyecto
+      run: dotnet build --no-restore
+
+    - name: 🧪 (Opcional) Ejecutar pruebas
+      run: echo "Sin pruebas unitarias configuradas"
+
+    - name: 🚀 Publicar (simulado)
+      run: echo "Publicación manual a somee.com realizada desde Visual Studio o FTP."
