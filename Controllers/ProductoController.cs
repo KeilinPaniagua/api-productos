@@ -40,7 +40,7 @@ namespace API.Controllers
         [Route("Obtener/{idProducto:int}")]
         public IActionResult Obtener(int idProducto)
         {
-            Producto oProducto = dbapiContext.Productos.Find(idProducto);
+            Producto? oProducto = dbapiContext.Productos.Find(idProducto);
 
             if (oProducto == null)
             { 
@@ -80,7 +80,7 @@ namespace API.Controllers
         [Route("Editar")]
         public IActionResult Editar([FromBody] Producto objecto)
         {
-            Producto oProducto = dbapiContext.Productos.Find(objecto.IdProducto);
+            Producto? oProducto = dbapiContext.Productos.Find(objecto.IdProducto);
 
             if (oProducto == null)
             {
@@ -110,7 +110,7 @@ namespace API.Controllers
         [Route("Eliminar/{idProducto:int}")]
         public IActionResult Eliminar(int idProducto)
         {
-            Producto oProducto = dbapiContext.Productos.Find(idProducto);
+            Producto? oProducto = dbapiContext.Productos.Find(idProducto);
 
             if (oProducto == null)
             {
